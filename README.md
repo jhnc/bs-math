@@ -2,7 +2,7 @@
 ## an arbitrary precision maths library written entirely in Bourne shell     
 
 In late 2001, I wrote <A HREF="bs-math.sh">the skeleton</A>
-of a pure <CODE>/bin/sh</CODE> implementation of various mathematical
+of a pure <A HREF="https://www.freebsd.org/cgi/man.cgi?query=sh&manpath=4.4BSD+Lite2"><CODE>/bin/sh</CODE></A> implementation of various mathematical
 operations (doesn't even use <CODE>test</CODE> or <CODE>echo</CODE>).
 It includes the boolean operators and conversion between binary and
 decimal, plus a few helper functions.
