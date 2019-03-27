@@ -191,15 +191,16 @@ __BSAPM_makeop2(){
 	eval ${1}'(){
 	__BSAPM_newvar __BSAPM_'$1'var1 "$1"
 	__BSAPM_newvar __BSAPM_'$1'var2 "$2"
-	__BSAPM_c=0 __BSAPM_nc=1
-	__BSAPM_'$1'ans=
+	__BSAPM_'$1'ans='$2'
 	__BSAPM_'$1'Helper
 	eval "${3-ans}=$__BSAPM_'$1'ans"
 }'
 }
 
-for op in dec2bin bin2dec                  ; do __BSAPM_makeop1 $op; done
-for op in add mul and or xor nand nor xnor ; do __BSAPM_makeop2 $op; done
+for op in dec2bin bin2dec              ; do __BSAPM_makeop1 $op; done
+for op in mul and or xor nand nor xnor ; do __BSAPM_makeop2 $op; done
+
+__BSAPM_makeop2 add ' __BSAPM_c=0 __BSAPM_nc=1'
 
 not(){
 	nand "$1" "$@"
